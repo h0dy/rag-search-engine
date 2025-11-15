@@ -1,4 +1,4 @@
-from .inverted_index import InvertedIndex
+from ..inverted_index import InvertedIndex
 from .idf_command import calculate_idf
 from .tf_command import calculate_tf
 

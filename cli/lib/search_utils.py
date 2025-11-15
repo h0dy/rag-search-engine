@@ -1,6 +1,9 @@
 from .utils import load_stop_words
 from nltk.stem import PorterStemmer
+from typing import Any
 import string
+
+SCORE_PRECISION = 3
 
 def has_matching_token(query_tokens: list[str], title_tokens: list[str]) -> bool:
     for q in query_tokens:
@@ -39,3 +42,26 @@ def tokenize_text(text:  str)  -> list[str]:
         steamed_tokens.append(steamer.stem(token)) 
     
     return steamed_tokens
+
+def format_search_result(
+    doc_id: str, title: str, document: str, score: float, **metadata: Any
+) -> dict[str, Any]:
+    """Create standardized search result
+
+    Args:
+        doc_id: Document ID
+        title: Document title
+        document: Display text (usually short description)
+        score: Relevance/similarity score
+        **metadata: Additional metadata to include
+
+    Returns:
+        Dictionary representation of search result
+    """
+    return {
+        "id": doc_id,
+        "title": title,
+        "document": document,
+        "score": round(score, SCORE_PRECISION),
+        "metadata": metadata if metadata else {},
+    }

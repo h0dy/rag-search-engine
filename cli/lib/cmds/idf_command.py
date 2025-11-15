@@ -1,4 +1,4 @@
-from .inverted_index import InvertedIndex
+from ..inverted_index import InvertedIndex
 
 def calculate_idf(term: str) -> float:
   idx = InvertedIndex()

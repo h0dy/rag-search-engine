@@ -1,5 +1,5 @@
-from .inverted_index import InvertedIndex
-from .search_utils import tokenize_text
+from ..inverted_index import InvertedIndex
+from ..search_utils import tokenize_text
 
     
 def search_movie_command(query: str, limit: int = 5) -> list[dict]:

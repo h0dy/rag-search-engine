@@ -1,4 +1,4 @@
-from .inverted_index import InvertedIndex
+from ..inverted_index import InvertedIndex
 
 def build_command() -> None:
     inverted_idx = InvertedIndex()
